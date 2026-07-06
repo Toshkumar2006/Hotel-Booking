@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+/*import { useEffect, useMemo, useState } from "react";
 
 import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
@@ -135,4 +135,9 @@ case "priceHigh":
   );
 }
 
-export default Home;
+export default Home;*/
+return (
+  <>
+    <Navbar />
+  </>
+);
