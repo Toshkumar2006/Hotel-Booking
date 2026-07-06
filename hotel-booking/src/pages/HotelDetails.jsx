@@ -81,23 +81,15 @@ function HotelDetails() {
         Book Now
       </button>
 
-      <h2 className="text-3xl font-bold mt-16 mb-6">
-        Gallery
-      </h2>
+     <h2 className="text-3xl font-bold mt-16 mb-6">
+  Hotel Image
+</h2>
 
-      <div className="grid md:grid-cols-3 gap-5">
-
-        {hotel.photos.map((img, index) => (
-          <img
-            key={index}
-            src={img}
-            alt=""
-            className="rounded-xl h-56 w-full object-cover"
-          />
-        ))}
-
-      </div>
-
+<img
+  src={hotel.thumbnail}
+  alt={hotel.name}
+  className="w-full rounded-xl"
+/>
     </div>
   );
 }
