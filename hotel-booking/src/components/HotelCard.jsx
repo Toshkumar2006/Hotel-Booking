@@ -2,19 +2,15 @@ import { Link } from "react-router-dom";
 import { FaMapMarkerAlt, FaStar } from "react-icons/fa";
 
 function HotelCard({ hotel }) {
-
   const image = hotel.thumbnail;
+
   return (
-   <img
-src={hotel.thumbnail}
-alt={hotel.name}
-className="h-60 w-full object-cover hover:scale-110 duration-500"
-/>
+    <div className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl hover:-translate-y-2 duration-300">
 
       <img
         src={image}
         alt={hotel.name}
-        className="h-56 w-full object-cover"
+        className="h-60 w-full object-cover hover:scale-105 duration-300"
       />
 
       <div className="p-5">
@@ -24,36 +20,26 @@ className="h-60 w-full object-cover hover:scale-110 duration-500"
         </h2>
 
         <div className="flex items-center gap-2 mt-3 text-gray-600">
-
-          <FaMapMarkerAlt className="text-red-500"/>
-
-          <span>
-            {hotel.location}
-          </span>
-
+          <FaMapMarkerAlt className="text-red-500" />
+          <span>{hotel.location}</span>
         </div>
 
         <div className="flex justify-between items-center mt-4">
 
           <div className="flex items-center gap-1">
-
-            <FaStar className="text-yellow-500"/>
-
-            {hotel.rating || "4.5"}
-
+            <FaStar className="text-yellow-500" />
+            <span>{hotel.rating}</span>
           </div>
 
           <div className="font-bold text-blue-600">
-
             ₹{parseFloat(hotel.price).toLocaleString()}
-
           </div>
 
         </div>
 
         <Link
           to={`/hotel/${hotel.id}`}
-          className="block mt-5 text-center bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700"
+          className="block text-center mt-5 bg-gradient-to-r from-blue-600 to-cyan-500 text-white py-3 rounded-lg font-semibold hover:opacity-90"
         >
           View Details
         </Link>
