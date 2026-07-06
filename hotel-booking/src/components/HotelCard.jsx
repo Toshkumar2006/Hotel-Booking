@@ -3,12 +3,7 @@ import { FaMapMarkerAlt, FaStar } from "react-icons/fa";
 
 function HotelCard({ hotel }) {
 
-  const image =
-    hotel.image ||
-    hotel.image_url ||
-    hotel.photo ||
-    "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800";
-
+  const image = hotel.thumbnail;
   return (
     <div className="bg-white rounded-xl shadow hover:shadow-xl duration-300 overflow-hidden">
 
@@ -29,7 +24,7 @@ function HotelCard({ hotel }) {
           <FaMapMarkerAlt className="text-red-500"/>
 
           <span>
-            {hotel.city || hotel.location}
+            {hotel.location}
           </span>
 
         </div>
@@ -46,7 +41,7 @@ function HotelCard({ hotel }) {
 
           <div className="font-bold text-blue-600">
 
-            ₹{hotel.price || hotel.price_per_night || "2500"}
+            ₹{Number(hotel.price).toFixed(0)}
 
           </div>
 
