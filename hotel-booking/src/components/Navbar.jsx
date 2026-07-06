@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { FaHotel } from "react-icons/fa";
+<FaHotel className="text-3xl"/>
 
 function Navbar() {
   return (
