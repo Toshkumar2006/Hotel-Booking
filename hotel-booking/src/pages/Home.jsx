@@ -27,7 +27,7 @@ function Home() {
 
         const res = await api.get("/hotels/");
 
-        setHotels(res.data);
+        setHotels(res.data.data);
 
       } catch (err) {
 
