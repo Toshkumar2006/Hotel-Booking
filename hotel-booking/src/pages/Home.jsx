@@ -1,9 +1,12 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
 import HotelCard from "../components/HotelCard";
 import Loader from "../components/Loader";
+import SearchBar from "../components/SearchBar";
+import FilterBar from "../components/FilterBar";
+import Footer from "../components/Footer";
 
 import api from "../services/api";
 
@@ -12,19 +15,23 @@ function Home() {
   const [hotels, setHotels] = useState([]);
   const [loading, setLoading] = useState(true);
 
+  const [search, setSearch] = useState("");
+
+  const [sort, setSort] = useState("");
+
   useEffect(() => {
 
-    const fetchHotels = async () => {
+    const getHotels = async () => {
 
       try {
 
-        const response = await api.get("/hotels/");
+        const res = await api.get("/hotels/");
 
-        setHotels(response.data);
+        setHotels(res.data);
 
-      } catch (error) {
+      } catch (err) {
 
-        console.log(error);
+        console.log(err);
 
       } finally {
 
@@ -34,9 +41,60 @@ function Home() {
 
     };
 
-    fetchHotels();
+    getHotels();
 
   }, []);
+
+  const filteredHotels = useMemo(() => {
+
+    let list = hotels.filter((hotel) => {
+
+      const text =
+        `${hotel.name ?? ""} ${hotel.city ?? ""}`.toLowerCase();
+
+      return text.includes(search.toLowerCase());
+
+    });
+
+    switch (sort) {
+
+      case "priceLow":
+        list.sort(
+          (a, b) =>
+            (a.price || 0) -
+            (b.price || 0)
+        );
+        break;
+
+      case "priceHigh":
+        list.sort(
+          (a, b) =>
+            (b.price || 0) -
+            (a.price || 0)
+        );
+        break;
+
+      case "rating":
+        list.sort(
+          (a, b) =>
+            (b.rating || 0) -
+            (a.rating || 0)
+        );
+        break;
+
+      case "name":
+        list.sort((a, b) =>
+          (a.name || "").localeCompare(b.name || "")
+        );
+        break;
+
+      default:
+        break;
+    }
+
+    return list;
+
+  }, [hotels, search, sort]);
 
   return (
     <>
@@ -48,27 +106,42 @@ function Home() {
         id="hotels"
         className="max-w-7xl mx-auto px-6 py-16"
       >
+        <SearchBar
+          search={search}
+          setSearch={setSearch}
+        />
 
-        <h2 className="text-4xl font-bold mb-10">
-          Popular Hotels
-        </h2>
+        <FilterBar
+          sort={sort}
+          setSort={setSort}
+        />
 
         {loading ? (
           <Loader />
         ) : (
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          <>
+            <p className="mb-6 text-gray-600">
+              {filteredHotels.length} Hotels Found
+            </p>
 
-            {hotels.map((hotel) => (
-              <HotelCard
-                key={hotel.id}
-                hotel={hotel}
-              />
-            ))}
+            <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
 
-          </div>
+              {filteredHotels.map((hotel) => (
+
+                <HotelCard
+                  key={hotel.id}
+                  hotel={hotel}
+                />
+
+              ))}
+
+            </div>
+          </>
         )}
-
       </section>
+
+      <Footer />
+
     </>
   );
 }
