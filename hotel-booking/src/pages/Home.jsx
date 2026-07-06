@@ -83,7 +83,7 @@ case "priceHigh":
         break;
     }
 
-    return list;
+    return list.slice(0, 30);
 
   }, [hotels, search, sort]);
 
@@ -117,14 +117,12 @@ case "priceHigh":
 
             <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
 
-              {filteredHotels.map((hotel) => (
-
-                <HotelCard
-                  key={hotel.id}
-                  hotel={hotel}
-                />
-
-              ))}
+              {filteredHotels.slice(0, 30).map((hotel) => (
+  <HotelCard
+    key={hotel.id}
+    hotel={hotel}
+  />
+))}
 
             </div>
           </>
