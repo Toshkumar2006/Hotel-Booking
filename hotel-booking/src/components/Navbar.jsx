@@ -1,5 +1,6 @@
-import { Link } from "react-router-dom";
-<FaHotel className="text-3xl"/>
+import { <FaHotel className="text-3xl" /> } from "react-router-dom";
+import { FaHotel } from "react-icons/fa";
+
 
 function Navbar() {
   return (
