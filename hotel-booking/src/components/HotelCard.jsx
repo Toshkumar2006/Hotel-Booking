@@ -5,7 +5,11 @@ function HotelCard({ hotel }) {
 
   const image = hotel.thumbnail;
   return (
-    <div className="bg-white rounded-xl shadow hover:shadow-xl duration-300 overflow-hidden">
+   <img
+src={hotel.thumbnail}
+alt={hotel.name}
+className="h-60 w-full object-cover hover:scale-110 duration-500"
+/>
 
       <img
         src={image}
