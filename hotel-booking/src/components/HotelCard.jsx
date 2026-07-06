@@ -41,7 +41,7 @@ function HotelCard({ hotel }) {
 
           <div className="font-bold text-blue-600">
 
-            ₹{Number(hotel.price).toFixed(0)}
+            ₹{parseFloat(hotel.price).toLocaleString()}
 
           </div>
 
