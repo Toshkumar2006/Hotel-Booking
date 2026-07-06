@@ -1,4 +1,4 @@
-import { link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { FaHotel } from "react-icons/fa";
 
 
