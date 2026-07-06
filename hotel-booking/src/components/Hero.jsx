@@ -1,32 +1,22 @@
-import { motion } from "framer-motion";
+<section className="bg-gradient-to-r from-blue-800 via-blue-600 to-cyan-500 text-white">
 
-function Hero() {
-  return (
-    <section className="bg-gradient-to-r from-blue-700 to-blue-500 text-white">
+<div className="max-w-7xl mx-auto py-28 px-6 text-center">
 
-      <div className="max-w-7xl mx-auto px-6 py-24 text-center">
+<h1 className="text-6xl font-extrabold">
+Discover Luxury Hotels
+</h1>
 
-        <motion.h1
-          initial={{ opacity: 0, y: -40 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="text-6xl font-bold"
-        >
-          Find Your Perfect Stay
-        </motion.h1>
+<p className="mt-6 text-xl">
+Book hotels across India at the best prices.
+</p>
 
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: .3 }}
-          className="mt-6 text-xl"
-        >
-          Search thousands of hotels around the world.
-        </motion.p>
+<a
+href="#hotels"
+className="inline-block mt-10 bg-white text-blue-700 px-8 py-4 rounded-lg font-bold hover:bg-gray-100"
+>
+Explore Hotels
+</a>
 
-      </div>
+</div>
 
-    </section>
-  );
-}
-
-export default Hero;
+</section>
