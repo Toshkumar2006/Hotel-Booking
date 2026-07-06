@@ -1,9 +1,9 @@
 # Hotel-Booking
 hotel-booking
 │
-├── public
+├── #public
 │
-├── src
+├──# src
 │   ├── assets
 │   │
 │   ├── components
