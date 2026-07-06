@@ -1,4 +1,4 @@
-import { <FaHotel className="text-3xl" /> } from "react-router-dom";
+import { link } from "react-router-dom";
 import { FaHotel } from "react-icons/fa";
 
 
@@ -11,7 +11,7 @@ function Navbar() {
           to="/"
           className="flex items-center gap-2 text-2xl font-bold text-blue-600"
         >
-          <FaHotel />
+          <FaHotel className="text-3xl" />
           StayFinder
         </Link>
 
