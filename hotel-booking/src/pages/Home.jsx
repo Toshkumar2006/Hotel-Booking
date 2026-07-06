@@ -20,67 +20,58 @@ function Home() {
   const [sort, setSort] = useState("");
 
   useEffect(() => {
+  const getHotels = async () => {
+    try {
+      const res = await api.get("/hotels/");
 
-    const getHotels = async () => {
+      setHotels(res.data.data);
 
-      try {
+    } catch (err) {
+      console.error(err);
+    } finally {
+      setLoading(false);
+    }
+  };
 
-        const res = await api.get("/hotels/");
-
-        setHotels(res.data.data);
-
-      } catch (err) {
-
-        console.log(err);
-
-      } finally {
-
-        setLoading(false);
-
-      }
-
-    };
-
-    getHotels();
-
-  }, []);
+  getHotels();
+}, []);
+  
 
   const filteredHotels = useMemo(() => {
 
     let list = hotels.filter((hotel) => {
 
       const text =
-        `${hotel.name ?? ""} ${hotel.city ?? ""}`.toLowerCase();
-
+       `${hotel.name} ${hotel.location}`.toLowerCase();
+      
       return text.includes(search.toLowerCase());
 
     });
 
     switch (sort) {
 
-      case "priceLow":
-        list.sort(
-          (a, b) =>
-            (a.price || 0) -
-            (b.price || 0)
-        );
-        break;
+     case "priceLow":
+  list.sort(
+    (a, b) =>
+      parseFloat(a.price) -
+      parseFloat(b.price)
+  );
+  break;
 
-      case "priceHigh":
-        list.sort(
-          (a, b) =>
-            (b.price || 0) -
-            (a.price || 0)
-        );
-        break;
+case "priceHigh":
+  list.sort(
+    (a, b) =>
+      parseFloat(b.price) -
+      parseFloat(a.price)
+  );
+  break;
 
-      case "rating":
-        list.sort(
-          (a, b) =>
-            (b.rating || 0) -
-            (a.rating || 0)
-        );
-        break;
+   case "rating":
+  list.sort(
+    (a, b) =>
+      b.rating - a.rating
+  );
+  break;
 
       case "name":
         list.sort((a, b) =>
