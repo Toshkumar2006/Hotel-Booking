@@ -134,7 +134,7 @@ npm run dev
 Open
 
 ```text
-http://localhost:5173
+https://hotel-booking-kohl-nine.vercel.app/#
 ```
 
 ---
