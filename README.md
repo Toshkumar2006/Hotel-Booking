@@ -137,7 +137,7 @@ The application is optimized for:
 Clone the repository
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/YOUR_REPOSITORY.git
+git clone https://github.com/Toshkumar2006/Hotel-Booking
 ```
 
 Move into the project folder
@@ -215,7 +215,7 @@ screenshots/
 
 **Tosh Kumar**
 
-GitHub: https://github.com/Toshkumar20
+GitHub: https://github.com/Toshkumar2006
 
 ---
 
