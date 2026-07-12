@@ -1,84 +1,83 @@
-# 🏨 StayGo – Premium Hotel Booking Website
+<div align="center">
 
-A modern **Hotel Booking Web Application** built with **React.js**, **Vite**, **Tailwind CSS**, and **Framer Motion**. StayGo provides a premium hotel browsing experience with a luxury-inspired user interface, responsive design, smooth animations, and an intuitive booking workflow.
+# 🏨 StayGo
 
----
+### Premium Hotel Booking Website
 
-## 🚀 Main Tech Stack
+A **modern, responsive, and animated hotel booking web application**
+built with **React.js**, **Vite**, **Tailwind CSS**, and **Framer Motion**.
 
-- ⚛️ React.js
-- ⚡ Vite
-- 🎨 Tailwind CSS
-- 🎭 Framer Motion
-- 🔥 JavaScript (ES6+)
-- 🧭 React Router DOM
-- 🎯 Lucide React Icons
-- 🌐 REST API Integration
+Designed with a **luxury-inspired UI**, interactive animations,
+responsive layouts, and a seamless booking experience.
 
----
+### 🚀 Live Demo
 
-# 📸 Features
+**https://your-vercel-link.vercel.app**
 
-- Premium luxury homepage
-- Fully responsive design
-- Animated Hero Section
-- Featured Luxury Rooms
-- Amenities Section
-- About Hotel Section
-- Popular Destinations
-- Special Deals
-- Hotel Explorer
-- Hotel Search & Filtering
-- Hotel Details Modal
-- Testimonials
-- Newsletter Subscription
-- Beautiful Footer
-- Smooth Animations
-- Mobile Friendly UI
+<br>
+
+![React](https://img.shields.io/badge/React-19.2-61DAFB?style=for-the-badge&logo=react&logoColor=white)
+![Vite](https://img.shields.io/badge/Vite-7.1-646CFF?style=for-the-badge&logo=vite&logoColor=white)
+![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-v4-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)
+![Framer Motion](https://img.shields.io/badge/Framer_Motion-12-000000?style=for-the-badge)
+![React Router](https://img.shields.io/badge/React_Router-v7-CA4245?style=for-the-badge&logo=reactrouter)
+![Vercel](https://img.shields.io/badge/Vercel-Deployed-black?style=for-the-badge&logo=vercel)
+
+</div>
 
 ---
 
-# 🛠️ Tech Stack Used
+# ✨ Features
 
-### Frontend
+- 🏨 Premium Luxury Homepage
+- 🎨 Modern UI/UX Design
+- ✨ Smooth Framer Motion Animations
+- 🌙 Luxury Dark Theme
+- 💎 Glassmorphism Components
+- 📱 Fully Responsive Design
+- 🔍 Hotel Search & Filtering
+- 🏨 Interactive Hotel Explorer
+- ⭐ Featured Luxury Rooms
+- 🛏️ Hotel Details Modal
+- 📍 Popular Destinations
+- 🎁 Exclusive Deals
+- 💬 Testimonials
+- 📩 Newsletter Subscription
+- ⚡ Optimized Performance
+- ♻️ Reusable Components
 
-- React.js
-- Vite
-- JavaScript (ES6+)
-- JSX
+---
 
-### Styling
+# 🎨 UI / UX Designing
 
-- Tailwind CSS
-- CSS3
+- Luxury Hotel Inspired Interface
+- Premium Color Palette
+- Glassmorphism Effects
+- Elegant Typography
+- Interactive Hover Effects
+- Micro Interactions
+- Smooth Scroll Animations
+- Responsive Layout
+- Mobile First Design
+- User-Centered Experience
+- Professional Component Architecture
+- Consistent Design System
 
-### Animations
+---
 
-- Framer Motion
+# 🛠 Tech Stack
 
-### Routing
-
-- React Router DOM
-
-### Icons
-
-- Lucide React
-
-### State Management
-
-- React Hooks
-  - useState
-  - useEffect
-
-### API
-
-- REST API
-- Fetch API
-
-### Version Control
-
-- Git
-- GitHub
+| Category | Technologies |
+|----------|--------------|
+| Frontend | React.js, JavaScript (ES6+), JSX |
+| Build Tool | Vite |
+| Styling | Tailwind CSS |
+| Animation | Framer Motion |
+| Routing | React Router DOM |
+| Icons | Lucide React |
+| State Management | React Hooks |
+| API | REST API |
+| Version Control | Git & GitHub |
 
 ---
 
@@ -95,9 +94,9 @@ src/
 │
 ├── context/
 ├── hooks/
-├── lib/
 ├── pages/
 ├── services/
+├── lib/
 │
 ├── App.jsx
 ├── main.jsx
@@ -106,44 +105,18 @@ src/
 
 ---
 
-# ✨ Key Highlights
-
-- Premium Hotel Booking UI
-- Modern Glassmorphism Design
-- Luxury Dark Theme
-- Responsive Layout
-- Smooth Scroll Animations
-- Interactive Hotel Cards
-- Dynamic Hotel Search
-- Professional Component Architecture
-- Reusable Components
-- Optimized Performance
-
----
-
-# 📱 Responsive Design
-
-The application is optimized for:
-
-- Desktop
-- Laptop
-- Tablet
-- Mobile Devices
-
----
-
 # ⚙️ Installation
 
 Clone the repository
 
 ```bash
-git clone https://github.com/Toshkumar2006/Hotel-Booking
+git clone https://github.com/Toshkumar20/Hotel-management-.git
 ```
 
-Move into the project folder
+Move to the project folder
 
 ```bash
-cd hotel-booking
+cd Hotel-management-
 ```
 
 Install dependencies
@@ -152,13 +125,13 @@ Install dependencies
 npm install
 ```
 
-Start the development server
+Run the development server
 
 ```bash
 npm run dev
 ```
 
-Open in browser
+Open
 
 ```text
 http://localhost:5173
@@ -166,13 +139,13 @@ http://localhost:5173
 
 ---
 
-# 📦 Build for Production
+# 📦 Production Build
 
 ```bash
 npm run build
 ```
 
-Preview production build
+Preview
 
 ```bash
 npm run preview
@@ -180,51 +153,27 @@ npm run preview
 
 ---
 
-# 📷 Screenshots
-
-You can add screenshots of the application here.
-
-Example:
-
-```
-screenshots/
-├── home.png
-├── hero.png
-├── hotel-list.png
-├── modal.png
-```
-
----
-
-# 🎯 Future Improvements
+# 🚀 Future Enhancements
 
 - User Authentication
-- Online Payment Gateway
-- Room Booking System
+- Secure Booking
+- Payment Gateway
 - Wishlist
 - Hotel Reviews
-- Booking History
-- Admin Dashboard
 - Google Maps Integration
-- Dark/Light Theme
+- AI Recommendations
+- Admin Dashboard
+- Booking History
 - Multi-language Support
 
 ---
 
-# 👨‍💻 Developed By
+<div align="center">
 
-**Tosh Kumar**
+## 👨‍💻 Developed By
 
-GitHub: https://github.com/Toshkumar2006
+### Tosh Kumar
 
----
+⭐ **If you like this project, don't forget to star this repository!**
 
-# ⭐ Support
-
-If you like this project, consider giving it a ⭐ on GitHub.
-
----
-
-# 📄 License
-
-This project is licensed under the MIT License.
+</div>
