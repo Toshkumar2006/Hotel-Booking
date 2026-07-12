@@ -1,36 +1,65 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
 @import "tailwindcss";
 
+/*
+  StayGo design tokens — a dark, cinematic hotel aesthetic with a warm amber accent.
+  Kept the palette tight: deep navy surfaces, a couple of grays, white text, and amber.
+*/
 @theme {
-  --color-luxury-gold: #c5a880;
-  --color-luxury-gold-hover: #b5956a;
-  --color-luxury-gold-dark: #8a7355;
-  --color-luxury-bg: #0f0e0c;
-  --color-luxury-bg-dark: #080706;
-  --color-luxury-card: rgba(24, 22, 19, 0.75);
-  
-  --font-playfair: 'Playfair Display', serif;
-  --font-inter: 'Inter', sans-serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Sora", ui-sans-serif, system-ui, sans-serif;
 
-  --animate-fade-in-up: fade-in-up 0.8s ease-out forwards;
-  --animate-ken-burns: ken-burns 20s ease-out infinite alternate;
-  --animate-fade-in: fade-in 0.4s ease-out forwards;
-  --animate-slide-up: slide-up 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  --animate-receipt-pop: receipt-pop 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  --color-ink: #0a0f1c;
+  --color-surface: #111a2e;
+  --color-surface-2: #18233c;
+  --color-line: #223050;
+
+  --color-muted: #8fa0bf;
+  --color-cloud: #e8edf7;
+
+  --color-amber: #f5a524;
+  --color-amber-strong: #f18f01;
+
+  --radius-xl2: 1.75rem;
 }
 
-@keyframes fade-in-up {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
+@layer base {
+  html {
+    scroll-behavior: smooth;
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+
+  body {
+    margin: 0;
+    background-color: var(--color-ink);
+    color: var(--color-cloud);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection {
+    background: var(--color-amber);
+    color: #1a1206;
   }
 }
 
-@keyframes ken-burns {
+/* Thin custom scrollbar so long lists feel premium instead of clunky. */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-ink);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-line);
+  border-radius: 9999px;
+  border: 2px solid var(--color-ink);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #2d3f68;
+}
+
+/* Utility used by the hero for a slow ken-burns drift on the background image. */
+@keyframes kenburns {
   from {
     transform: scale(1);
   }
@@ -38,113 +67,14 @@
     transform: scale(1.12);
   }
 }
-
-@keyframes fade-in {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+.animate-kenburns {
+  animation: kenburns 22s ease-in-out infinite alternate;
 }
 
-@keyframes slide-up {
-  from {
-    opacity: 0;
-    transform: translateY(40px) scale(0.95);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
 }
-
-@keyframes receipt-pop {
-  0% {
-    opacity: 0;
-    transform: translateY(80px) scale(0.85) rotate(-2deg);
-  }
-  70% {
-    transform: translateY(-5px) scale(1.02) rotate(0.5deg);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0) scale(1) rotate(0deg);
-  }
-}
-
-/* Custom Scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: #0f0e0c;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #25221d;
-  border-radius: 4px;
-  border: 1px solid #14120f;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #c5a880;
-}
-
-/* Native dialog styling and backdrop blur */
-dialog {
-  border: 1px solid rgba(197, 168, 128, 0.25);
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8);
-}
-
-dialog::backdrop {
-  background: rgba(8, 7, 6, 0.7);
-  backdrop-filter: blur(8px);
-  animation: fade-in 0.3s ease-out forwards;
-}
-
-/* Glassmorphism helpers */
-.glass {
-  background: rgba(24, 22, 19, 0.75);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(197, 168, 128, 0.1);
-}
-
-.glass-premium {
-  background: linear-gradient(135deg, rgba(28, 25, 21, 0.8) 0%, rgba(18, 16, 14, 0.9) 100%);
-  backdrop-filter: blur(16px);
-  border: 1px solid rgba(197, 168, 128, 0.15);
-  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.05);
-}
-
-/* Ken Burns effect wrapper */
-.hero-image-zoom {
-  animation: ken-burns 15s ease-out infinite alternate;
-}
-
-/* Custom typography defaults */
-body {
-  font-family: 'Inter', sans-serif;
-  background-color: #0f0e0c;
-  color: #e5e2dd;
-}
-
-h1, h2, h3, .font-serif {
-  font-family: 'Playfair Display', serif;
-}
-
-/* Line Clamp */
-.line-clamp-2 {
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
-.line-clamp-3 {
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
