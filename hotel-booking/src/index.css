@@ -78,3 +78,17 @@
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #0a0a0a;
+  color: white;
+}
+
+::selection {
+  background: #d4af37;
+  color: black;
+}

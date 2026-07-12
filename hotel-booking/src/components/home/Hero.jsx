@@ -1,124 +1,101 @@
-import { useState } from "react";
 import { motion } from "framer-motion";
-import { Search, MapPin, Star, Building2 } from "lucide-react";
-import heroResort from "../assets/hero-resort.png";
+import { div } from "framer-motion/client";
 
-const fadeUp = {
-  hidden: { opacity: 0, y: 28 },
-  show: (i = 0) => ({
-    opacity: 1,
-    y: 0,
-    transition: { delay: 0.15 + i * 0.12, duration: 0.7, ease: [0.22, 1, 0.36, 1] },
-  }),
-};
-
-export default function Hero({ onSearch, totalHotels }) {
-  const [query, setQuery] = useState("");
-
-  const submit = (e) => {
-    e.preventDefault();
-    onSearch(query);
-    document.getElementById("explore")?.scrollIntoView({ behavior: "smooth" });
-  };
-
+export default function Hero() {
   return (
-   <section className="relative flex min-h-[100svh] items-center overflow-hidden">
-      {/* Cinematic background with a slow ken-burns drift */}
-      <div className="absolute inset-0">
-        <img
-          src="/hero-resort.png"
-          alt="Luxury glass villa lit at dusk beside an infinity pool"
-          className="h-full w-full object-cover scale-105 transition-transform duration-[12000ms]"
-        />
-        <div className="absolute inset-0 bg-gradient-to-br from-[#050816]/90 via-[#050816]/65 to-black/80" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(96,165,250,0.18),transparent_55%)]" />
-      </div>
+    <section
+      className="relative h-screen bg-cover bg-center"
+      style={{
+        backgroundImage:
+          "url('https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=2000&auto=format&fit=crop')",
+      }}
+    >
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/55 to-black/80"></div>
 
-      {/* Oversized ghost wordmark, echoing the reference design */}
-      <span
-        aria-hidden="true"
-        className="pointer-events-none absolute left-1/2 top-[22%] -translate-x-1/2 select-none font-display text-[26vw] font-extrabold leading-none tracking-tighter text-cloud/5"
-      >
-        StayGo
-      </span>
-
-      <div className="relative z-10 mx-auto w-full max-w-7xl px-5 pt-24 sm:px-8">
-        <motion.div
-          initial="hidden"
-          animate="show"
-          className="max-w-2xl"
+      {/* Hero Content */}
+      <div className="relative z-10 flex flex-col justify-center items-center h-full text-center px-6">
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="text-yellow-400 tracking-[12px] uppercase mb-6 text-sm md:text-base font-light"
         >
-          <motion.span
-            variants={fadeUp}
-            custom={0}
-            className="mb-5 inline-flex items-center gap-2 rounded-full border border-line/80 bg-ink/40 px-4 py-1.5 text-xs font-medium text-cloud backdrop-blur"
-          >
-            <span className="h-1.5 w-1.5 rounded-full bg-amber" />
-            {totalHotels ? `${totalHotels}+ stays across India` : "Handpicked stays across India"}
-          </motion.span>
+          Luxury • Comfort • Elegance
+        </motion.p>
 
-          <motion.h1
-            variants={fadeUp}
-            custom={1}
-            className="font-display text-5xl font-extrabold leading-[1.02] tracking-tight text-balance sm:text-6xl lg:text-7xl"
-          >
-            Find Your Perfect Stay
-            <span className="block text-amber">at the Best Price</span>
-          </motion.h1>
+        <motion.h1
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8 }}
+          className="text-6xl md:text-8xl font-extrabold leading-tight text-white drop-shadow-2xl"
+        >
+          Experience Luxury <br /> Like Never Before
+        </motion.h1>
 
-          <motion.p
-            variants={fadeUp}
-            custom={2}
-            className="mt-5 max-w-lg text-base leading-relaxed text-muted sm:text-lg"
-          >
-            From boutique city hideaways to beachfront resorts — browse, compare
-            and shortlist thousands of hotels in seconds.
-          </motion.p>
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.3 }}
+          className="text-gray-300 max-w-2xl mt-6 text-lg"
+        >
+          Discover elegant rooms, world-class amenities, and unforgettable
+          hospitality. Your perfect stay starts here.
+        </motion.p>
 
-          {/* Search bar echoing the reference: pill input + amber action */}
-          <motion.form
-            variants={fadeUp}
-            custom={3}
-            onSubmit={submit}
-            className="mt-8 flex max-w-xl items-center gap-2 rounded-full border border-line/80 bg-ink/70 p-2 pl-5 backdrop-blur-xl focus-within:border-amber/60"
-          >
-            <Search size={20} className="shrink-0 text-muted" />
+        <motion.button
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          className="mt-10 px-10 py-4 rounded-full bg-gradient-to-r from-yellow-500 to-amber-400 text-black font-bold shadow-2xl hover:scale-105 transition-all duration-300"        >
+          Book Your Stay
+        </motion.button>
+
+        {/* Booking Card */}
+        <motion.div
+    initial={{opacity:0,y:50}}
+    animate={{
+        opacity:1,
+        y:[0,-8,0]
+    }}
+    transition={{
+        duration:4,
+        repeat:Infinity
+    }}
+    className="mt-16 bg-white/10 backdrop-blur-3xl rounded-3xl border border-white/10 shadow-2xl p-6 w-[92%] max-w-6xl">
+
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
             <input
-              value={query}
-              onChange={(e) => setQuery(e.target.value)}
-              placeholder="Search by hotel name or city..."
-              className="w-full bg-transparent py-2.5 text-sm text-cloud outline-none placeholder:text-muted"
-              aria-label="Search hotels"
-            />
-            <button
-              type="submit"
-              className="shrink-0 rounded-full bg-amber px-6 py-2.5 text-sm font-semibold text-ink transition-transform hover:scale-[1.03] active:scale-95"
-            >
-              Search
-            </button>
-          </motion.form>
+              type="date"
+              className = "h-16 bg-black/20 border border-white/10 rounded-2xl px-5 text-lg text-white focus:border-yellow-400 transition"
+              />
 
-          <motion.dl
-            variants={fadeUp}
-            custom={4}
-            className="mt-10 flex flex-wrap gap-x-10 gap-y-4"
-          >
-            {[
-              { icon: Building2, value: `${totalHotels || "500"}+`, label: "Hotels listed" },
-              { icon: MapPin, value: "12", label: "Cities covered" },
-              { icon: Star, value: "4.8", label: "Avg. guest rating" },
-            ].map(({ icon: Icon, value, label }) => (
-              <div key={label} className="flex items-center gap-3">
-                <Icon size={20} className="text-amber" />
-                <div>
-                  <dt className="font-display text-xl font-bold leading-none">{value}</dt>
-                  <dd className="mt-1 text-xs text-muted">{label}</dd>
-                </div>
-              </div>
-            ))}
-          </motion.dl>
+            <input
+              type="date"
+              className="h-16 bg-black/20 border border-white/10 rounded-2xl px-5 text-lg text-white focus:border-yellow-400 transition"
+            />
+
+            <select className="h-16 bg-black/20 border border-white/10 rounded-2xl px-5 text-lg text-white focus:border-yellow-400 transition">
+              <option>1 Guest</option>
+              <option>2 Guests</option>
+              <option>3 Guests</option>
+              <option>4 Guests</option>
+            </select>
+
+            <button className="h-16 rounded-2xl bg-gradient-to-r from-yellow-500 to-amber-400 text-black font-bold text-lg shadow-xl hover:scale-105 hover:shadow-yellow-500/40 transition-all duration-300">
+              Check Availability
+            </button>
+          </div>
         </motion.div>
       </div>
+      <motion.div
+    animate={{ y: [0, 10, 0] }}
+    transition={{ repeat: Infinity, duration: 1.5 }}
+    className="absolute bottom-8 left-1/2 -translate-x-1/2"
+>
+    <div className="w-7 h-12 border-2 border-white/60 rounded-full flex justify-center">
+        <div className="w-1 h-3 bg-yellow-400 rounded-full mt-2"></div>
+    </div>
+</motion.div>
     </section>
   );
 }
