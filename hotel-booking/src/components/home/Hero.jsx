@@ -22,32 +22,16 @@ export default function Hero({ onSearch, totalHotels }) {
   };
 
   return (
-    <section className="relative min-h-screen">
-  {/* Background */}
-  <img
-    src={heroResort}
-    alt="Luxury Resort"
-    className="absolute inset-0 h-full w-full object-cover"
-  />
-
-  {/* Dark Overlay */}
-  <div className="absolute inset-0 bg-black/60" />
-
-  {/* Hero Content */}
-  <div className="relative z-10">
-    {/* Heading, buttons, search bar, etc. */}
-  </div>
-</section>
-    <section className="relative flex min-h-[100svh] items-center overflow-hidden">
+   <section className="relative flex min-h-[100svh] items-center overflow-hidden">
       {/* Cinematic background with a slow ken-burns drift */}
       <div className="absolute inset-0">
         <img
           src="/hero-resort.png"
           alt="Luxury glass villa lit at dusk beside an infinity pool"
-          className="h-full w-full animate-kenburns object-cover"
+          className="h-full w-full object-cover scale-105 transition-transform duration-[12000ms]"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/70 to-ink/40" />
-        <div className="absolute inset-0 bg-gradient-to-r from-ink/80 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-br from-[#050816]/90 via-[#050816]/65 to-black/80" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(96,165,250,0.18),transparent_55%)]" />
       </div>
 
       {/* Oversized ghost wordmark, echoing the reference design */}
