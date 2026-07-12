@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Search, MapPin, Star, Building2 } from "lucide-react";
+import heroResort from "../assets/hero-resort.png";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 28 },
@@ -21,6 +22,22 @@ export default function Hero({ onSearch, totalHotels }) {
   };
 
   return (
+    <section className="relative min-h-screen">
+  {/* Background */}
+  <img
+    src={heroResort}
+    alt="Luxury Resort"
+    className="absolute inset-0 h-full w-full object-cover"
+  />
+
+  {/* Dark Overlay */}
+  <div className="absolute inset-0 bg-black/60" />
+
+  {/* Hero Content */}
+  <div className="relative z-10">
+    {/* Heading, buttons, search bar, etc. */}
+  </div>
+</section>
     <section className="relative flex min-h-[100svh] items-center overflow-hidden">
       {/* Cinematic background with a slow ken-burns drift */}
       <div className="absolute inset-0">
