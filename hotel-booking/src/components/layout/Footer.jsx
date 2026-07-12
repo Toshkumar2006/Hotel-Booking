@@ -1,80 +1,96 @@
-import { Sparkles, Camera, Send, Globe } from "lucide-react";
-
-const COLUMNS = [
-  {
-    title: "Company",
-    links: ["About us", "Careers", "Press", "Partners"],
-  },
-  {
-    title: "Support",
-    links: ["Help center", "Cancellation", "Safety", "Contact us"],
-  },
-  {
-    title: "Discover",
-    links: ["Deals & offers", "Destinations", "Travel guides", "Gift cards"],
-  },
-];
+import {
+  FaFacebookF,
+  FaInstagram,
+  FaTwitter,
+  FaMapMarkerAlt,
+  FaPhone,
+  FaEnvelope,
+} from "react-icons/fa";
 
 export default function Footer() {
   return (
-    <footer className="border-t border-line bg-surface/40">
-      <div className="mx-auto max-w-7xl px-5 py-14 sm:px-8">
-        <div className="grid gap-10 md:grid-cols-[1.4fr_repeat(3,1fr)]">
-          <div>
-            <div className="flex items-center gap-2">
-              <span className="grid h-9 w-9 place-items-center rounded-xl bg-amber text-ink">
-                <Sparkles size={18} strokeWidth={2.4} />
-              </span>
-              <span className="font-display text-xl font-extrabold">
-                Stay<span className="text-amber">Go</span>
-              </span>
-            </div>
-            <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted">
-              Your perfect stay, at the best price. Discover and shortlist
-              handpicked hotels across India.
-            </p>
-            <div className="mt-5 flex gap-3">
-              {[Camera, Send, Globe].map((Icon, i) => (
-                <a
-                  key={i}
-                  href="#"
-                  className="grid h-9 w-9 place-items-center rounded-full border border-line text-muted transition-colors hover:border-amber/60 hover:text-amber"
-                  aria-label="Social link"
-                >
-                  <Icon size={16} />
-                </a>
-              ))}
-            </div>
-          </div>
+    <footer className="bg-black border-t border-white/10">
 
-          {COLUMNS.map((col) => (
-            <div key={col.title}>
-              <h4 className="font-display text-sm font-semibold">{col.title}</h4>
-              <ul className="mt-4 space-y-3">
-                {col.links.map((link) => (
-                  <li key={link}>
-                    <a
-                      href="#"
-                      className="text-sm text-muted transition-colors hover:text-cloud"
-                    >
-                      {link}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+      <div className="max-w-7xl mx-auto px-6 py-20 grid md:grid-cols-4 gap-10">
+
+        <div>
+          <h2 className="text-4xl font-bold text-white">
+            Stay<span className="text-yellow-400">Go</span>
+          </h2>
+
+          <p className="text-gray-400 mt-6">
+            Experience luxury hospitality with elegant rooms,
+            world-class amenities and unforgettable memories.
+          </p>
         </div>
 
-        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-line pt-6 text-xs text-muted sm:flex-row">
-          <p>© {new Date().getFullYear()} StayGo. Built for the demo hotels API.</p>
-          <div className="flex gap-6">
-            <a href="#" className="hover:text-cloud">Privacy</a>
-            <a href="#" className="hover:text-cloud">Terms</a>
-            <a href="#" className="hover:text-cloud">Cookies</a>
+        <div>
+          <h3 className="text-white text-xl font-bold mb-5">
+            Quick Links
+          </h3>
+
+          <ul className="space-y-3 text-gray-400">
+            <li>Home</li>
+            <li>Rooms</li>
+            <li>Gallery</li>
+            <li>About</li>
+            <li>Contact</li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 className="text-white text-xl font-bold mb-5">
+            Contact
+          </h3>
+
+          <div className="space-y-4 text-gray-400">
+
+            <div className="flex items-center gap-3">
+              <FaMapMarkerAlt size={18} />
+              New Delhi, India
+            </div>
+
+            <div className="flex items-center gap-3">
+              <FaPhone size={18} />
+              +91 9876543210
+            </div>
+
+            <div className="flex items-center gap-3">
+              <FaEnvelope size={18} />
+              hello@staygo.com
+            </div>
+
           </div>
         </div>
+
+        <div>
+          <h3 className="text-white text-xl font-bold mb-5">
+            Follow Us
+          </h3>
+
+          <div className="flex gap-4">
+
+            <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center hover:bg-yellow-500 hover:text-black transition cursor-pointer">
+              <FaFacebookF size={20} />
+            </div>
+
+            <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center hover:bg-yellow-500 hover:text-black transition cursor-pointer">
+              <FaInstagram size={20} />
+            </div>
+
+            <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center hover:bg-yellow-500 hover:text-black transition cursor-pointer">
+              <FaTwitter size={20} />
+            </div>
+
+          </div>
+        </div>
+
       </div>
+
+      <div className="border-t border-white/10 py-6 text-center text-gray-500">
+        © 2026 StayGo. All Rights Reserved.
+      </div>
+
     </footer>
   );
 }

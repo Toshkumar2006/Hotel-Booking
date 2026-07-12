@@ -1,11 +1,11 @@
 import { motion } from "framer-motion";
-import { Menu, X, Hotel } from "lucide-react";
+import { Hotel, Menu, X } from "lucide-react";
 import { useState } from "react";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
 
-  const navLinks = [
+  const links = [
     "Home",
     "Rooms",
     "Suites",
@@ -15,8 +15,8 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 bg-black/20 backdrop-blur-2xl border-b border-white/10 shadow-lg">
-      <div className="max-w-7xl mx-auto flex justify-between items-center px-8 py-5">
+    <nav className="fixed top-0 left-0 w-full z-50 bg-black/20 backdrop-blur-2xl border-b border-yellow-500/10">
+      <div className="max-w-7xl mx-auto flex items-center justify-between px-8 py-5">
 
         {/* Logo */}
 
@@ -24,49 +24,43 @@ export default function Navbar() {
           whileHover={{ scale: 1.05 }}
           className="flex items-center gap-3 cursor-pointer"
         >
-          <Hotel className="text-yellow-500 w-8 h-8" />
+          <Hotel className="text-yellow-400 w-9 h-9" />
 
           <div>
-            <h1 className="text-2xl font-bold tracking-widest text-white">
+            <h1 className="text-white font-bold text-4xl leading-none">
               Stay
             </h1>
 
-            <p className="text-yellow-500 text-xs tracking-[4px]">
+            <p className="text-yellow-400 tracking-[8px] text-sm">
               GO
             </p>
           </div>
         </motion.div>
 
-        {/* Desktop */}
+        {/* Desktop Menu */}
 
-        <ul className="hidden lg:flex gap-10 text-white">
+        <ul className="hidden lg:flex gap-12">
 
-          {navLinks.map((item) => (
+          {links.map((item) => (
             <motion.li
               key={item}
               whileHover={{ y: -3 }}
-              className="relative cursor-pointer group"
+              className="relative text-gray-200 cursor-pointer group"
             >
-              <span className="transition text-gray-300 group-hover:text-yellow-400">
-                {item}
-              </span>
+              {item}
 
-              <span className="absolute left-0 -bottom-2 h-[2px] w-0 bg-yellow-500 transition-all duration-300 group-hover:w-full"></span>
+              <span className="absolute left-0 -bottom-2 h-[2px] bg-yellow-400 w-0 group-hover:w-full transition-all duration-300"></span>
             </motion.li>
           ))}
 
         </ul>
 
-        {/* Book Button */}
+        {/* Button */}
 
         <motion.button
-          whileHover={{
-            scale: 1.05,
-          }}
-          whileTap={{
-            scale: 0.95,
-          }}
-          className="hidden lg:block px-6 py-3 rounded-full bg-yellow-500 text-black font-semibold hover:bg-yellow-400 transition"
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: .95 }}
+          className="hidden lg:block px-8 py-4 rounded-full bg-gradient-to-r from-yellow-500 to-amber-400 text-black font-bold shadow-lg"
         >
           Book Now
         </motion.button>
@@ -77,34 +71,55 @@ export default function Navbar() {
           onClick={() => setOpen(!open)}
           className="lg:hidden text-white"
         >
-          {open ? <X size={30} /> : <Menu size={30} />}
+          {open ? <X size={30}/> : <Menu size={30}/>}
         </button>
+
       </div>
 
       {/* Mobile Menu */}
 
       {open && (
+
         <motion.div
-          initial={{ opacity: 0, y: -30 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="lg:hidden bg-[#111111] border-t border-yellow-600/20"
+
+          initial={{opacity:0,y:-30}}
+
+          animate={{opacity:1,y:0}}
+
+          className="lg:hidden bg-black/80 backdrop-blur-xl"
+
         >
-          {navLinks.map((item) => (
+
+          {links.map((item)=>(
+
             <div
+
               key={item}
-              className="px-8 py-4 text-gray-300 border-b border-gray-800 hover:text-yellow-400 cursor-pointer"
+
+              className="py-5 px-8 border-b border-white/10 text-gray-300 hover:text-yellow-400"
+
             >
+
               {item}
+
             </div>
+
           ))}
 
           <div className="p-6">
-            <button className="w-full bg-yellow-500 text-black py-3 rounded-full font-semibold">
+
+            <button className="w-full bg-yellow-500 text-black py-4 rounded-full font-bold">
+
               Book Now
+
             </button>
+
           </div>
+
         </motion.div>
+
       )}
+
     </nav>
   );
 }

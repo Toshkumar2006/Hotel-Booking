@@ -4,6 +4,12 @@ import Hero from "../components/home/Hero.jsx";
 import Destinations from "../components/home/Destinations.jsx";
 import Deals from "../components/home/Deals.jsx";
 import HotelExplorer from "../components/hotels/HotelExplorer.jsx";
+import FeaturedRooms from "../components/home/FeaturedRooms";
+import Amenities from "../components/home/Amenities";
+import About from "../components/home/About";
+import Stats from "../components/home/Stats";
+import Testimonials from "../components/home/Testimonials";
+import Newsletter from "../components/home/Newsletter";
 
 export default function Home({ hotels, status, error, reload, onOpen }) {
   const [query, setQuery] = useState("");
@@ -25,19 +31,37 @@ export default function Home({ hotels, status, error, reload, onOpen }) {
   };
 
   return (
-    <>
-      <Hero onSearch={setQuery} totalHotels={hotels.length} />
-      <Destinations hotels={hotels} onSelectCity={searchCity} />
-      <Deals />
-      <HotelExplorer
-        hotels={hotels}
-        status={status}
-        error={error}
-        onReload={reload}
-        query={query}
-        onQuery={setQuery}
-        onOpen={onOpen}
-      />
-    </>
-  );
+  <>
+    <Hero onSearch={setQuery} totalHotels={hotels.length} />
+
+    <FeaturedRooms />
+
+    <Amenities />
+
+    <About />
+
+    <Destinations
+      hotels={hotels}
+      onSelectCity={searchCity}
+    />
+
+    <Deals />
+
+    <Stats />
+
+    <HotelExplorer
+      hotels={hotels}
+      status={status}
+      error={error}
+      onReload={reload}
+      query={query}
+      onQuery={setQuery}
+      onOpen={onOpen}
+    />
+
+    <Testimonials />
+
+    <Newsletter />
+  </>
+);
 }

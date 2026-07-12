@@ -2,6 +2,14 @@ import { useCallback, useEffect, useState } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import Navbar from "./components/layout/Navbar.jsx";
 import Footer from "./components/layout/Footer.jsx";
+import Hero from "./components/home/Hero.jsx";
+import FeaturedRooms from "./components/home/FeaturedRooms.jsx";
+import Amenities from "./components/home/Amenities.jsx";
+import About from "./components/home/About.jsx";
+import Gallery from "./components/hotels/Gallery.jsx";
+import Testimonials from "./components/home/Testimonials.jsx";
+import Stats from "./components/home/Stats.jsx";
+import Newsletter from "./components/home/Newsletter.jsx";
 import HotelModal from "./components/hotels/HotelModal.jsx";
 import Home from "./pages/Home.jsx";
 import Favorites from "./pages/Favorites.jsx";
@@ -31,7 +39,7 @@ export default function App() {
     <div className="flex min-h-screen flex-col">
       <Navbar />
 
-      <main className="flex-1">
+      <main>
         <Routes>
           <Route
             path="/"
